@@ -15,7 +15,7 @@ describe('index.html', ()=> {
             const h1 = window.document.getElementsByTagName('h1')[0]
             expect(h1.innerHTML).to.equal("Index HTML in the house")
             done()
-            window.close
+            window.close 
         })
     })
 })
