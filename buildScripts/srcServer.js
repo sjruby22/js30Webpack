@@ -15,6 +15,15 @@ app.use(require("webpack-dev-middleware")(compiler, {
 
 app.get('/', function(request, result) {
     result.sendFile(path.join(__dirname, '../src/index.html'))
+})  
+
+app.get('/users', function(request, result) {
+    result.json([
+            {"id":"1", "username": "test"},
+            {"id":"2", "username": "test2"},
+            {"id":"3", "username": "test3"}
+        ])
+    
 })
 
 app.listen(port, function(err) {
