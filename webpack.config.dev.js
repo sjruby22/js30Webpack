@@ -22,7 +22,8 @@ export default {
       })],
   module: {
     loaders: [
-      {test: /\.js$/, exclude: /node_modules/, loaders: ['babel']},
+      // this makes lit-html package run through babel... that seems really dumb...
+      {test: /\.js$/, exclude: /node_modules\/(?!(lit-html))/, loaders: ['babel']},
       {test: /\.css$/, loaders: ['style','css']}
     ]
   }
