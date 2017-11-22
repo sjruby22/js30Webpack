@@ -1,6 +1,7 @@
 import { html } from 'lit-html'
+import { userRows} from './userRows'
 
-export function usersTable() {
+export function usersTable(usersBody) {
   return html`
             <table>
             <thead>
@@ -10,7 +11,8 @@ export function usersTable() {
                 <th>last name</th>
                 <th>email</th>
             </thead>
-            <tbody id="users2">
+            <tbody id="users">
+              ${userRows(usersBody)}
             </tbody>
         </table>
   `
