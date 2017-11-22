@@ -10,9 +10,7 @@ const litHtmlAnchor = document.querySelector('#litHtmlAnchor');
 const combineHtml = () => html`
     ${usersTable()}
     ${helloWorld('Mr.', 'Robot')}`
-// render(helloWorld('Mr.', 'Robot'), litHtmlAnchor)
-// render(usersTable(), litHtmlAnchor)
-
+    
 render(combineHtml() , litHtmlAnchor)
 
 const testValue = numeral(1000).format('$0,0.00')
@@ -26,7 +24,7 @@ getUsers().then(result => {
     usersBody+= `<tr> 
         <td><a href="#" data-id="${user.id}" class="deleteUser">Delete</a></td>
         <td>${user.id}</td>
-        <td>${user.firstName}</td>
+        <td>${user.firstName}</td>npm r
         <td>${user.lastName}</td>
         <td>${user.email}</td>
     </tr>`
