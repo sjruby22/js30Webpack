@@ -22,7 +22,8 @@
   "author": "Sam Ruby",
   "license": "MIT",
   "dependencies": {
-    "whatwg-fetch": "1.0.0"
+    "lit-html": "^0.7.1",
+    "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {
     "babel-cli": "6.16.0",
@@ -59,7 +60,7 @@
     "webpack-hot-middleware": "2.13.0",
     "webpack-md5-hash": "0.0.5"
   },
-  "engines" : { 
-      "node" : ">=6.11" 
-  } 
+  "engines": {
+    "node": ">=6.11"
+  }
 }
