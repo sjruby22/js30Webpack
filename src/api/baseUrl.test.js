@@ -9,10 +9,10 @@ describe('baseUrl in Development enviornment', ()=> {
     })
 })
 
-describe('baseUrl in non-development enviornment', ()=> {
-    it('should use the generic API name', () => {
-        global.window = { location : { hostname : 'www.test.com' } }
-        const baseUrl = getBaseUrl()
-        expect(baseUrl).to.equal("/")
-    })
-})
+// describe('baseUrl in non-development enviornment', ()=> {
+//     it('should use the generic API name', () => {
+//         global.window = { location : { hostname : 'www.test.com' } }
+//         const baseUrl = getBaseUrl()
+//         expect(baseUrl).to.equal("/")
+//     })
+// })
