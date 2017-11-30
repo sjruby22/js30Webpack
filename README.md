@@ -1,29 +1,21 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+### Front End Node Starter Kit ###
 
-### What is this repository for? ###
+Based on Corey House Pluralsight Node Starter Kit 
+It is setup for development in My cloud9 space, currently this works only on my
+cloud9 enviornment, and the all scripted log messages are specific to the createstuff
+workspace.
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+### What's included ###
 
-### How do I get set up? ###
+* Express development server
+* Build minification, transpiling,  
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+### Things still to-do ###
 
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+* Make build script messages detect Localhost v. Cloud9
+* Make build script messages detect the Cloud9 workspace
+* Complete CRUD actions on the mockApi
+* Create a starter-kit backend server - and have it serve the users resource
+* Make the baseUrl file point to deployed backend API instead of mockApi
