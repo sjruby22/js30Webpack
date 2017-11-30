@@ -1,33 +1,26 @@
-import './index.css'
-import numeral from 'numeral'
-import {getUsers, deleteUser} from './api/userApi'
-import { html, render } from 'lit-html';
-import {helloWorld} from './components/helloWorld'
-import {usersTable} from './components/usersTable'
+import './style.css'
+import './sounds/boom.wav'
+/* eslint-disable no-console */
+console.log('this prooves that web pack is injecting index.js')
 
 
-const litHtmlAnchor = document.querySelector('#litHtmlAnchor');
+function removeTransition(e) {
+    if (e.propertyName !== 'transform') return;
+    e.target.classList.remove('playing');
+}
 
-const testValue = numeral(1000).format('$0,0.00')
-console.log(`I would pay ${testValue} for this course...NOT `)// eslint-disable-line no-console
-console.log(window.location.hostname)// eslint-disable-line no-console
-
-getUsers().then(result => {
-    const combineHtml = (result) => html`
-    ${usersTable(result)}
-    ${helloWorld('Mr.', 'Robot')}`
+function playSound(e) {
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+    if (!audio) return;
     
-    render(combineHtml(result) , litHtmlAnchor)
-    
-    const deleteLinks = global.document.getElementsByClassName('deleteUser')
-    
-    Array.from(deleteLinks, link=> {
-        link.onclick = function(event){
-            const element = event.target
-            event.preventDefault()
-            deleteUser(element.attributes["data-id"].value)
-            const row = element.parentNode.parentNode
-            row.parentNode.removeChild(row)
-        }
-    })
-})
+    key.classList.add('playing');
+    audio.currentTime = 0;
+    audio.play();
+}
+
+const keys = Array.from(document.querySelectorAll('.key'));
+
+keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+
+window.addEventListener('keydown', playSound);
