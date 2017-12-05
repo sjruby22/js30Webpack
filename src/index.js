@@ -1,8 +1,4 @@
 import './style.css'
-import './sounds/boom.wav'
-/* eslint-disable no-console */
-console.log('this prooves that web pack is injecting index.js')
-
 
 function removeTransition(e) {
     if (e.propertyName !== 'transform') return;
