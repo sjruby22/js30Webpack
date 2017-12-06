@@ -1,4 +1,12 @@
 import './style.css'
+import { key } from './keyComponent/key'
+import { render } from 'lit-html'
+
+/* eslint-disable no-console */
+const boomKey = key("G", "boom", "71", "sounds/boom.wav")
+console.log(boomKey)
+const litHtmlAnchor = document.querySelector('#litHtmlAnchor')
+render(boomKey , litHtmlAnchor)
 
 function removeTransition(e) {
     if (e.propertyName !== 'transform') return;

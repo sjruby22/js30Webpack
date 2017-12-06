@@ -3,6 +3,7 @@ import path from "path"
 import open from "open"
 import webpack from 'webpack'
 import config from '../webpack.config.dev'
+import { mockData } from './mockApi/mockData'
 
 const port = 8080
 const app = express()
@@ -17,28 +18,8 @@ app.get('/', function(request, result) {
     result.sendFile(path.join(__dirname, '../src/index.html'))
 })  
 
-app.get('/users', function(request, result) {
-    result.json([
-  {
-    "id": 41343615,
-    "firstName": "Orlando",
-    "lastName": "Bergstrom",
-    "email": "Sylvia.Wiegand@gmail.com"
-  },
-  {
-    "id": 42036944,
-    "firstName": "Norris",
-    "lastName": "Barrows",
-    "email": "Cody51@yahoo.com"
-  },
-  {
-    "id": 63067022,
-    "firstName": "Sigmund",
-    "lastName": "Blanda",
-    "email": "Rashawn15@yahoo.com"
-  }
-])
-    
+app.get('/keys', function(request, result) {
+    result.json(mockData)
 })
 
 app.listen(port, function(err) {
