@@ -1,6 +1,7 @@
 import './style.css'
 import { key } from './keyComponent/key'
 import { audio } from './keyComponent/audio'
+// import { playingKeys } from './keyComponent/playingKeys'
 import { html, render } from 'lit-html'
 import { repeat } from '../node_modules/lit-html/lib/repeat'
 import { getKeys } from './api/keys'
