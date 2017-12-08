@@ -1,24 +1,14 @@
 import './style.css'
-import { key } from './keyComponent/key'
-import { audio } from './keyComponent/audio'
-// import { playingKeys } from './keyComponent/playingKeys'
-import { html, render } from 'lit-html'
-import { repeat } from '../node_modules/lit-html/lib/repeat'
+import { PlayingKeys } from './keyComponent/playingKeys'
+import { render } from 'lit-html'
 import { getKeys } from './api/keys'
 
-const renderKeys = (keys) => html`
-        ${repeat(keys, 
-            (k) => k.idForClickEvent, 
-            (k) => html`
-                    ${key(k.character, k.soundName, k.idForClickEvent)}
-                    ${audio(k.idForClickEvent, k.audioSrc)}
-                    `
-        )}`
-        
 getKeys()
     .then( (keys) => {
+        const js30Keys = new PlayingKeys(keys)
+        console.log(js30Keys)
         const litHtmlAnchor = document.querySelector('#litHere') 
-        render(renderKeys(keys), litHtmlAnchor)
+        render(js30Keys.html, litHtmlAnchor)
     })
     .then(() => {
         function removeTransition(e) {

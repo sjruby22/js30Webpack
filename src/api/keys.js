@@ -7,7 +7,6 @@ export function getKeys() {
     return get('keys')
 }
 
-
 function get(url) {
     return fetch(baseUrl + url).then(onSuccess, onError)
 }

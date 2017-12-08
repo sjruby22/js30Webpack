@@ -3,7 +3,6 @@ import { repeat } from '../../node_modules/lit-html/lib/repeat'
 import { key } from './key'
 import { audio } from './audio'
 
-
 export class PlayingKeys {
     constructor(keys) {
         this.keys = keys
@@ -19,8 +18,8 @@ export class PlayingKeys {
         )}`
     }
     
-    get keys() {
-        return this.keys
+    get html() {
+        return this.renderKeys()
     }
 }
 
