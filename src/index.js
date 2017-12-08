@@ -1,46 +1,41 @@
 import './style.css'
 import { key } from './keyComponent/key'
-import { render } from 'lit-html'
+import { audio } from './keyComponent/audio'
+import { html, render } from 'lit-html'
+import { repeat } from '../node_modules/lit-html/lib/repeat'
 import { getKeys } from './api/keys'
 
-/* eslint-disable no-console */
+const renderKeys = (keys) => html`
+        ${repeat(keys, 
+            (k) => k.idForClickEvent, 
+            (k) => html`
+                    ${key(k.character, k.soundName, k.idForClickEvent)}
+                    ${audio(k.idForClickEvent, k.audioSrc)}
+                    `
+        )}`
+        
 getKeys()
     .then( (keys) => {
-        return keys.map((i) => key(i.character, i.soundName, i.idForClickEvent, i.audioSrc))
+        const litHtmlAnchor = document.querySelector('#litHere') 
+        render(renderKeys(keys), litHtmlAnchor)
     })
-    .then(( keysHTML) => {
-        console.log(keysHTML)
-        const litHtmlAnchor = document.querySelector('#litHere')
-        keysHTML.forEach((i) => {
-            let divTag = document.createElement("div")
-            litHtmlAnchor.appendChild(divTag)
-            render(i , divTag)
-        })
+    .then(() => {
+        function removeTransition(e) {
+        if (e.propertyName !== 'transform') return
+        e.target.classList.remove('playing')
+        }
+        const keys = Array.from(document.querySelectorAll('.key'))
+        keys.forEach(key => key.addEventListener('transitionend', removeTransition))
     })
     
-function removeTransition(e) {
-    if (e.propertyName !== 'transform') return;
-    e.target.classList.remove('playing');
-}
-
-function playSound(e) {
-    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-    const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
-    if (!audio) return;
+function playSound(event) {
+    const audio = document.querySelector(`audio[data-key="${event.keyCode}"]`)
+    const key = document.querySelector(`div[data-key="${event.keyCode}"]`)
+    if (!audio) return
     
-    key.classList.add('playing');
-    audio.currentTime = 0;
-    audio.play();
+    key.classList.add('playing')
+    audio.currentTime = 0
+    audio.play()
 }
 
-const keys = Array.from(document.querySelectorAll('.key'));
-
-keys.forEach(key => key.addEventListener('transitionend', removeTransition));
-
-window.addEventListener('keydown', playSound);
-
-
-// const boomKey = key("G", "boom", "71", "sounds/boom.wav")
-// console.log(boomKey)
-// const litHtmlAnchor = document.querySelector('#litHtmlAnchor')
-// render(boomKey , litHtmlAnchor)
+window.addEventListener('keydown', playSound)
