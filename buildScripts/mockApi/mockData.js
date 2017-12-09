@@ -1,54 +1,54 @@
 export const mockData = [
    {
-      "character":"A",
+      "clickCharcter":"A",
       "soundName":"clap",
       "idForClickEvent":"65",
       "audioSrc":"sounds/clap.wav"
    },
    {
-      "character":"S",
+      "clickCharcter":"S",
       "soundName":"hihat",
       "idForClickEvent":"83",
       "audioSrc":"sounds/hihat.wav"
    },
    {
-      "character":"D",
+      "clickCharcter":"D",
       "soundName":"kick",
       "idForClickEvent":"68",
       "audioSrc":"sounds/kick.wav"
    },
    {
-      "character":"F",
+      "clickCharcter":"F",
       "soundName":"openhat",
       "idForClickEvent":"70",
       "audioSrc":"sounds/openhat.wav"
    },
    {
-      "character":"G",
+      "clickCharcter":"G",
       "soundName":"boom",
       "idForClickEvent":"71",
       "audioSrc":"sounds/boom.wav"
    },
    {
-      "character":"H",
+      "clickCharcter":"H",
       "soundName":"ride",
       "idForClickEvent":"72",
       "audioSrc":"sounds/ride.wav"
    },
    {
-      "character":"J",
+      "clickCharcter":"J",
       "soundName":"snare",
       "idForClickEvent":"74",
       "audioSrc":"sounds/snare.wav"
    },
    {
-      "character":"K",
+      "clickCharcter":"K",
       "soundName":"tom",
       "idForClickEvent":"75",
       "audioSrc":"sounds/tom.wav"
    },
    {
-      "character":"L",
+      "clickCharcter":"L",
       "soundName":"tink",
       "idForClickEvent":"76",
       "audioSrc":"sounds/tink.wav"

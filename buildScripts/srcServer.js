@@ -18,7 +18,7 @@ app.get('/', function(request, result) {
     result.sendFile(path.join(__dirname, '../src/index.html'))
 })  
 
-app.get('/keys', function(request, result) {
+app.get('/sounds', function(request, result) {
     result.json(mockData)
 })
 

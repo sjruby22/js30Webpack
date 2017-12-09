@@ -3,8 +3,8 @@ import getBaseUrl from './baseUrl'
 
 const baseUrl = getBaseUrl()
 
-export function getKeys() {
-    return get('keys')
+export function getJs30Sounds() {
+    return get('sounds')
 }
 
 function get(url) {
